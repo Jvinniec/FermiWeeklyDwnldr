@@ -23,13 +23,15 @@ parameter.
 - If the local version of a file has a different size than the server version,
 the file is re-downloaded (useful for the most recent data file). This feature
 can be turned off using the `--ignoresize` command line option.
-- Files are initially downloaded into a temporary directory on the system
-specified by the users `$TEMPDIR` environment variable, or `/tmp/` if `$TEMPDIR`
-is undefined. This ensures the files are cleanedup by the system if for some 
-reason the dowload is cancelled. If neither of these locations exist, the file is downloaded into the specified download directory.
 - Files are initially pre-pended with `tmp_<servername>` while downloading and
 this temporary file is deleted if something goes wrong (such as the user killing
 the script mid-download).
+- Files are initially downloaded into a temporary directory on the system
+specified by the users `$TEMPDIR` environment variable, or `/tmp/` if `$TEMPDIR`
+is undefined. This ensures the files are cleanedup by the system if for some 
+reason the download is cancelled and the temporary file cannot be safely deleted. 
+If neither of these locations exist, the file is downloaded into the specified 
+download directory.
 - By default a dry-run is conducted, printing a list of files to be downloaded
 and the total size that would be transferred. Passing the command line option
 `--D` will initiate the actual download of the files.
@@ -63,8 +65,8 @@ Files that would be downloaded:
 Total transfer size: 105.54 G
 ```
 This displays the list of files that would be downloaded along with their size
-in megabytes. The last like displays a combined total for all files that would
-be downloaded. At the current time of writing this, that would be about 105.54 
+in megabytes. The last line displays a combined total for all files that would
+be downloaded. At the time the above was executed, that would be about 105.54 
 gigabytes. Note that this total will be smaller if the directory you are
 downloading files to already contains some of these files.
 
