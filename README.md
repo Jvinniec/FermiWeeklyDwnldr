@@ -23,13 +23,13 @@ parameter.
 - If the local version of a file has a different size than the server version,
 the file is re-downloaded (useful for the most recent data file). This feature
 can be turned off using the `--ignoresize` command line option.
-- Files are initially pre-pended with `tmp_<servername>` while downloading and
-this temporary file is deleted if something goes wrong (such as the user killing
-the script mid-download).
+- Files are initially pre-pended with `tmp_<server_filename>` while downloading 
+and this temporary file is deleted if something goes wrong (such as the user 
+killing the script mid-download).
 - Files are initially downloaded into a temporary directory on the system
 specified by the users `$TEMPDIR` environment variable, or `/tmp/` if `$TEMPDIR`
 is undefined. This ensures the files are cleanedup by the system if for some 
-reason the download is cancelled and the temporary file cannot be safely deleted. 
+reason the download is canceled and the temporary file cannot be safely deleted. 
 If neither of these locations exist, the file is downloaded into the specified 
 download directory.
 - By default a dry-run is conducted, printing a list of files to be downloaded
@@ -54,6 +54,8 @@ optional arguments:
 ```
 
 # Examples
+
+### View files to be downloaded
 
 The most generic execution would be to run the script in the current directory
 ```
