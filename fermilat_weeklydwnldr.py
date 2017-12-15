@@ -285,8 +285,9 @@ def getopts_dwnldr():
     parser.add_argument('--dwndir', type=str, default='./',
                         help='Local directory to download files to')
     parser.add_argument('--ignoresize', action='store_true',
-                        help='Force re-download of file if server size is ' +
-                             'different than local file size')
+                        help='Ignore file size differences when deciding to ' +
+                             're-download file, if server size is different ' +
+                             'than local file size')
     parser.add_argument('--D', action='store_true',
                         help='If not supplied, a list of files to be downloaded '+
                              'is printed rather than actually downloading them')
